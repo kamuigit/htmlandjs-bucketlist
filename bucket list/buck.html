@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Viewer</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .arrange {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #backI {
+            background-color: blue;
+            padding-bottom: 8%;
+        }
+
+        #heading {
+            color: white;
+            padding-bottom: 2%;
+        }
+
+        #heading1 {
+            padding-bottom: 1%;
+
+        }
+
+        #addButton {
+            color: black;
+            background-color: greenyellow;
+            border: 1px solid black;
+            border-radius: 20px;
+            height: 30px;
+            width: 70px;
+        }
+
+        #tex {
+            color: black;
+            border: 1px solid greenyellow;
+            border-radius: 20px;
+            height: 30px;
+            width: 400px;
+
+        }
+
+        #resetButton {
+            color: black;
+            font-weight: 800;
+            font-size: 15px;
+            background-color: greenyellow;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding-top: 1%;
+            padding-bottom: 3%;
+            height: 40px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="arrange">
+        <div id="backI">
+            <img id="bgImage" />
+            <h1 id="heading">My 2022 Bucket List</h1>
+            <input id="tex" type="text" placeholder="enter something"><button id="addButton"
+                onclick="add()">Add</button>
+        </div>
+        <div>
+            <h2 id="heading1">Here's What you gotta do this year</h2>
+            <p id="heading2">The First Thing on your bucket list is to tick things of your bucket list. So, go ahead
+                buddy ;)...</p>
+        </div>
+        <div id="outbox">
+            <div id="about">
+            </div>
+            <button id="resetButton" onclick="reset()"> Reset Bucket List</button>
+
+        </div>
+    </div>
+    <script>
+        var count = 0;
+        function add() {
+            count++;
+            var c = document.getElementById("tex").value
+            var d = document.createElement("div")
+            d.className = "chum"
+            d.style.border = "1px solid black"
+            d.style.marginLeft = "33%"
+            d.style.marginBottom = "30px"
+            d.style.borderRadius = "6px"
+            d.style.textAlign = "center"
+            d.style.width = "40vw"
+            d.style.height = "30px"
+            document.getElementById("about").appendChild(d)
+            d.innerHTML = " (" + count + ") " + c
+        }
+        function reset() {
+            let a = document.getElementsByClassName("chum").length;
+            while (a > 0) {
+                a--;
+                var e = document.getElementsByClassName("chum")[a];
+                e.remove();
+            }
+            // for (let index = 0; index < document.getElementsByClassName("chum").length; index++) {
+            //     var e = document.getElementsByClassName("chum")[index];
+            //     e.remove();
+            // }
+            count = 0;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
